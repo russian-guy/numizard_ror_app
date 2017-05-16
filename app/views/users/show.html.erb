@@ -2,10 +2,12 @@
 <div class="row">
   <aside class="span4">
     <section>
+
+      <%= image_tag(@user.avatar.url, size: "80", alt: "avatar", unless: @user.avatar.nil?) %>
       <h1>
-        <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+
     </section>
   </aside>
 </div>
