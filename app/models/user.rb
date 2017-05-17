@@ -3,16 +3,24 @@ class User < ApplicationRecord
     before_save   { self.email = email.downcase }
     before_create :create_remember_token
 
-    validates(:name, presence: true, length: { maximum: 50 })
+    validates(:name, length: { maximum: 50, message: " - слишком длинное [Имя] (50 символов - максимум)"})
+    validates(:name, :presence => { :message => " - поле [Имя] обязательно для заполнения" })
 
     VALID_EMAIL_REGEXP = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates(:email, presence: true, format: { with: VALID_EMAIL_REGEXP }, uniqueness: { case_sensitive: false })
+    validates(:email, format: { with: VALID_EMAIL_REGEXP, message: " - недействительный [E-mail адрес]"})
+    validates(:email, uniqueness: { case_sensitive: false, message: " - [E-mail адрес] уже занят"})
+    validates(:email, :presence => { :message => " - поле [E-mail адрес] обязательно для заполнения" })
 
     has_secure_password
-    validates(:password, length: { minimum: 6 })
+    validates(:password, length: { minimum: 6, message: " - слишком короткий [Пароль] (6 символов - минимиум)"})
+    validates(:password, :presence => { :message => " - поле [Пароль] обязательно для заполнения" })
 
     has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, default_url: "missing.png"
     validates_attachment_content_type(:avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf"])
+
+    validates(:sex, :presence => { :message => " - поле [Пол] обязательно для заполнения" })
+    #VALID_SEX_REGEXP = /\Aman\z/
+    #validates(:sex, format: { with: VALID_SEX_REGEXP, message: " - [Пол] может быть либо женским [woman], либо мужским [man]"})
 
     def User.new_remember_token
       SecureRandom.urlsafe_base64

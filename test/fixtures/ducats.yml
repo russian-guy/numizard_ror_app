@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mean_price: 
+  name: MyString
+  material: MyString
+  weight: 
+  diameter: 
+  rating: 
+  publish_year: 1
+  mint: MyString
+  set: MyString
+  quantity: 
+  description: MyString
+
+two:
+  mean_price: 
+  name: MyString
+  material: MyString
+  weight: 
+  diameter: 
+  rating: 
+  publish_year: 1
+  mint: MyString
+  set: MyString
+  quantity: 
+  description: MyString

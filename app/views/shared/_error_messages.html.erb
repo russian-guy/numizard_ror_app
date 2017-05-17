@@ -7,18 +7,8 @@
     <% @user.errors.full_messages.each do |msg| %>
 
       <% case msg %>
-        <% when "Name can't be blank" %>
-          <li> * Имя не может быть пустым </li>
-        <% when "Email can't be blank" %>
-          <li> * Email адрес не может быть пустым </li>
-        <% when "Email is invalid" %>
-          <li> * Недействительный Email адрес </li>
-        <% when "Email has already been taken" %>
-          <li> * Данный Email адрес уже занят </li>
         <% when "Password can't be blank" %>
           <li> * Пароль не может быть пустым </li>
-        <% when "Password is too short (minimum is 6 characters)" %>
-          <li> * Слишком короткий пароль (6 символов - минимум) </li>
         <% when "Password confirmation doesn't match Password" %>
           <li> * Пароли не совпадают </li>
       <% else %>

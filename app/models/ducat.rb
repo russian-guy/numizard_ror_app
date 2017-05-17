@@ -1,0 +1,3 @@
+class Ducat < ApplicationRecord
+  
+end

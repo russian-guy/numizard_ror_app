@@ -11,8 +11,17 @@
         <%= f.label :name, "Имя" %>
         <%= f.text_field :name %>
 
+        <%= f.label :surname, "Фамилия" %>
+        <%= f.text_field :surname %>
+
+        <%= f.label :birthday, "Дата рождения" %>
+        <%= f.date_field :birthday %>
+
+        <%= f.label :sex, "Пол" %>
+        <%= f.text_field :sex %>
+
         <%= f.label :email, "E-mail адрес" %>
-        <%= f.text_field :email %>
+        <%= f.email_field :email %>
 
         <%= f.label :password, "Пароль" %>
         <%= f.password_field :password %>
@@ -23,7 +32,7 @@
         <%= f.label :avatar, "Аватар" %>
         <%= f.file_field :avatar %>
 
-        <div class="center">
+        <div class="center padding_top_20">
           <%= f.submit "Зарегестрироваться", class: "btn btn-large btn-primary" %>
         </div>
 

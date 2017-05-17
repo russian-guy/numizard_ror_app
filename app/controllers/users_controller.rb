@@ -23,6 +23,10 @@ class UsersController < ApplicationController
       @user = User.new(user_params)    # Not the final implementation!
       if @user.save
         flash[:success] = "Готово! Регистрация прошла успешно!"
+        if signed_in?
+          sign_out
+        end
+        sign_in     @user
         redirect_to @user
       else
         render 'new'
@@ -42,7 +46,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :surname, :birthday, :sex, :city, :street, :house_number, :pavilion_number, :apartment_number, :postcode, :telephone_number)
     end
 
     def signed_in_user

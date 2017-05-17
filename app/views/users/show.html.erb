@@ -1,13 +1,22 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
-    <section>
 
-      <%= image_tag(@user.avatar.url, size: "80", alt: "avatar", unless: @user.avatar.nil?) %>
-      <h1>
-        <%= @user.name %>
-      </h1>
+          <div class="span3 hero-unit">
+            <% if @user.admin? %>
+              <h1 class="padding_bot_30"> ADMIN </h1>
+            <% end %>
+            <li>Аватар: </li>
+            <%= image_tag(@user.avatar.url, size: "80", alt: "avatar", unless: @user.avatar.nil?) %>
+            <li>Имя: <%= @user.name %> </li>
+            <li>Фамилия: <%= @user.surname %> </li>
+            <li>Дата рождения: <%= @user.birthday %> </li>
+            <li>Пол: <%= fsex(@user) %> </li>
 
-    </section>
-  </aside>
+
+          </div>
+
+          <div class="span6 hero-unit">
+            INFO ABOUT ADS AND SO ON
+          </div>
+
 </div>

@@ -1,7 +1,38 @@
-<div class="center hero-unit">
+<div class="center  ">
 
-  <h1>This is the home page.</h1>
+  <!--<h1>This is the home page.</h1>-->
 
-  <%= link_to "Sign up now!", sign_up_path, class: "btn btn-large btn-primary" %>
+  <!--<%= link_to "Sign up now!", sign_up_path, class: "btn btn-large btn-primary" %>-->
+
+
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a data-toggle="tab" href="#panel1">Продажа</a>
+    </li>
+
+    <li>
+      <a data-toggle="tab" href="#panel2">Покупка</a>
+    </li>
+
+    <li>
+      <a data-toggle="tab" href="#panel3">Эталоны</a>
+    </li>
+
+  </ul>
+
+  <div class="tab-content">
+    <div id="panel1" class="tab-pane fade in active">
+
+      <p>Содержимое 1 панели...</p>
+    </div>
+    <div id="panel2" class="tab-pane fade">
+
+      <p>Содержимое 2 панели...</p>
+    </div>
+    <div id="panel3" class="tab-pane fade">
+
+      <p>Содержимое 3 панели...</p>
+    </div>
+  </div>
 
 </div>

@@ -39,6 +39,31 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+.hero-unit{
+  padding: 60px;
+  padding-top: 30px;
+  padding-right: 60px;
+  padding-bottom: 60px;
+  padding-left: 60px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  color: inherit;
+  background-color: #eee;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+
+ .padding_bot_30 {
+  padding-bottom: 30px;
+ }
+
+ .padding_top_20 {
+  padding-top: 20px;
+ }
 
 /* error_style */
 
