@@ -19,8 +19,6 @@ class User < ApplicationRecord
     validates_attachment_content_type(:avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf"])
 
     validates(:sex, :presence => { :message => " - поле [Пол] обязательно для заполнения" })
-    #VALID_SEX_REGEXP = /\Aman\z/
-    #validates(:sex, format: { with: VALID_SEX_REGEXP, message: " - [Пол] может быть либо женским [woman], либо мужским [man]"})
 
     def User.new_remember_token
       SecureRandom.urlsafe_base64

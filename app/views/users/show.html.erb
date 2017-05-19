@@ -2,16 +2,34 @@
 <div class="row">
 
           <div class="span3 hero-unit">
-            <% if @user.admin? %>
-              <h1 class="padding_bot_30"> ADMIN </h1>
+
+
+            <h1> <%= @user.name %> </h1>
+
+
+            <div class = "center">
+              <%= image_tag(@user.avatar.url, size: "80", alt: "avatar", unless: @user.avatar.nil?) %>
+            </div>
+
+            <% unless @user.surname.to_s.strip.empty? %>
+              <li>Фамилия: <%= @user.surname %> </li>
             <% end %>
-            <li>Аватар: </li>
-            <%= image_tag(@user.avatar.url, size: "80", alt: "avatar", unless: @user.avatar.nil?) %>
-            <li>Имя: <%= @user.name %> </li>
-            <li>Фамилия: <%= @user.surname %> </li>
-            <li>Дата рождения: <%= @user.birthday %> </li>
+
+            <% unless @user.birthday.to_s.strip.empty? %>
+              <li>Дата рождения: <%= @user.birthday %> </li>
+            <% end %>
+
             <li>Пол: <%= fsex(@user) %> </li>
 
+            <li>E-mail: <%= @user.email %> </li>
+
+            <% unless @user.telephone_number.to_s.strip.empty? %>
+              <li>Телефон: <%= @user.telephone_number %> </li>
+            <% end %>
+
+            <% unless get_adress(@user).to_s.strip.empty? %>
+              <li>Адрес: <%= get_adress(@user) %> </li>
+            <% end %>
 
           </div>
 

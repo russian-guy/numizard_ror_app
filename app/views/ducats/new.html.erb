@@ -1,0 +1,69 @@
+<% provide(:title, 'Создание эталона') %>
+<h1>Создание нового эталона</h1>
+
+<div class="hero-unit">
+  <div class="row-fluid">
+    <div class="span6 offset3" >
+      <%= form_for(@ducat) do |f| %>
+
+
+
+        <%= f.label :name, "Название" %>
+        <%= f.text_field :name, :placeholder => 'МОНЕТА РУБЛЬ' %>
+
+        <%= f.label :mean_price, "Средняя цена (рублей)" %>
+        <%= f.text_field :mean_price, :placeholder => '559' %>
+
+        <%= f.label :material, "Металл" %>
+        <%= f.text_field :material, :placeholder => 'Серебро 868 пробы' %>
+
+        <%= f.label :weight, "Вес (грамм)" %>
+        <%= f.text_field :weight, :placeholder => '20,73' %>
+
+        <%= f.label :diameter, "Диаметр (мм)" %>
+        <%= f.text_field :diameter, :placeholder => '35,5' %>
+
+        <%= f.label :rating, "Номинал" %>
+        <%= f.text_field :rating, :placeholder => '1 рубль' %>
+
+        <%= f.label :publish_year, "Год" %>
+        <%= f.text_field :publish_year, :placeholder => '1833' %>
+
+        <%= f.label :mint, "Монетный двор" %>
+        <%= f.text_field :mint, :placeholder => 'Санкт-Петербургский' %>
+
+        <div class="row-fluid">
+          <div class="span1">
+            <%= f.radio_button(:set, "true") %>
+          </div>
+          <div class="span3">
+            <%= f.label(:set_true, "Комплект") %>
+          </div>
+          <div class="span1">
+            <%= f.radio_button(:set, "false") %>
+          </div>
+          <div class="span3">
+            <%= f.label(:set_false, "Не комплект") %>
+          </div>
+        </div>
+
+        <%= f.label :set, "Количество" %>
+        <%= f.text_field :set, :placeholder => '1' %>
+
+        <%= f.label :avatar, "Фото" %>
+        <%= f.file_field :avatar, multiple: true %>
+
+        <div class="center padding_top_20">
+          <%= f.submit "Создать", class: "btn btn-large btn-primary" %>
+        </div>
+
+        <%= f.label :description, "Описание" %>
+        <%= f.text_area :description, :placeholder => 'Введите описание' %>
+
+      <% end %>
+
+
+
+    </div>
+  </div>
+</div>

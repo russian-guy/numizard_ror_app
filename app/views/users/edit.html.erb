@@ -4,23 +4,33 @@
 <div class = "hero-unit">
   <div class="row-fluid ">
     <div class="span6 offset3">
-      <%= form_for(@user) do |f| %>
+
+        <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages' %>
 
         <%= f.label :name, "Имя" %>
-        <%= f.text_field :name %>
-
-        <%= f.label :email, "E-mail адрес" %>
-        <%= f.text_field :email %>
+        <%= f.text_field :name, :placeholder => 'Иван' %>
 
         <%= f.label :surname, "Фамилия" %>
-        <%= f.text_field :surname %>
+        <%= f.text_field :surname, :placeholder => 'Иванов' %>
 
         <%= f.label :birthday, "Дата рождения" %>
-        <%= f.date_field :birthday %>
+        <%= f.date_field :birthday, :placeholder => '17-05-1991' %>
 
         <%= f.label :sex, "Пол" %>
-        <%= f.text_field :sex %>
+        <div class="row-fluid">
+          <div class="span1">
+            <%= f.radio_button(:sex, "true") %>
+            <%= f.label(:sex_true, "М") %>
+          </div>
+          <div class="span1">
+            <%= f.radio_button(:sex, "false") %>
+            <%= f.label(:sex_false, "Ж") %>
+          </div>
+        </div>
+
+        <%= f.label :email, "E-mail адрес" %>
+        <%= f.email_field :email, :placeholder => 'example@gmail.com' %>
 
         <%= f.label :password, "Пароль" %>
         <%= f.password_field :password %>
@@ -31,9 +41,46 @@
         <%= f.label :avatar, "Аватар" %>
         <%= f.file_field :avatar %>
 
-
         <div class="center padding_top_20">
           <%= f.submit "Сохранить изменения", class: "btn btn-large btn-primary" %>
+          <p class="blind_text center padding_top_20"> Дополнительная информация </p>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span4">
+            <%= f.label :city, "Город" %>
+            <%= f.text_field :city, :placeholder => 'Москва'  %>
+          </div>
+          <div class="span8">
+            <%= f.label :street, "Улица" %>
+            <%= f.text_field :street %>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span4">
+            <%= f.label :house_number, "№ дома" %>
+            <%= f.text_field :house_number %>
+          </div>
+          <div class="span4">
+            <%= f.label :pavilion_number, "№ подъезда" %>
+            <%= f.text_field :pavilion_number %>
+          </div>
+          <div class="span4">
+            <%= f.label :apartment_number, "№ квартиры" %>
+            <%= f.text_field :apartment_number %>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span4">
+            <%= f.label :telephone_number, "Телефон" %>
+            <%= f.text_field :telephone_number, :placeholder => '8(000)000-00-00' %>
+          </div>
+          <div class="span4">
+            <%= f.label :postcode, "Почт. индекс" %>
+            <%= f.text_field :postcode, :placeholder => '000-000' %>
+          </div>
         </div>
 
       <% end %>
