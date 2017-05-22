@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :users,    only: [:new, :create, :update, :edit, :show]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :ducats,   only: [:new, :create]
+  resources :ducats,   only: [:new, :create, :edit, :show, :update, :destroy]
 
   root  'static_pages#home'
 
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   match '/edit_user', to: 'users#edit',           via: 'get'
 
   match '/ducat_create', to: 'ducats#new',        via: 'get'
+  match '/edit_ducat',   to: 'ducats#edit',       via: 'get'
 
   match '*path' => redirect('/'), via: :get
 

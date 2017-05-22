@@ -18,6 +18,16 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def signed_in_admin?
+    if(current_user.nil?)
+      return false
+    end
+    if(!current_user.admin?)
+      return false
+    end
+    return true
+  end
+
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)

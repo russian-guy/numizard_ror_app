@@ -69,6 +69,22 @@ $grayMediumLight: #eaeaea;
   color: #999;
  }
 
+ /* Ducats index */
+
+ .ducats {
+   list-style: none;
+   margin: 0;
+   text-align: left;
+   li {
+     overflow: auto;
+     padding: 10px 0;
+     border-top: 1px solid $grayLighter;
+     &:last-child {
+       border-bottom: 1px solid $grayLighter;
+     }
+   }
+ }
+
 /* error_style */
 
 #error_explanation {

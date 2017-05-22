@@ -1,0 +1,25 @@
+<% provide(:title, 'Эталоны монет') %>
+
+<% if signed_in_admin? %>
+    <div class="padding_bot_30">
+      <%= link_to("Создать новый эталон", ducat_create_path, class: "btn btn-large btn-primary") %>
+    </div>
+<% end %>
+
+<ul class="ducats">
+  <% @ducats = Ducat.all %>
+  <% @ducats.each do |ducat| %>
+
+    <li>
+      <div>
+        <% if signed_in_admin? %>
+            <%= link_to("Редактировать", "ducats/" + ducat.id.to_s + "/edit", class: "btn btn-medium btn-primary")           %>
+            <%= link_to("Удалить",       ducat, method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-medium ") %>
+        <% end %>
+      </div>
+
+      <%= link_to(ducat.name, ducat) %>
+    </li>
+
+  <% end %>
+</ul>
