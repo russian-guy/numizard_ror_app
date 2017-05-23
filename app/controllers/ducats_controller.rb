@@ -7,7 +7,8 @@ class DucatsController < ApplicationController
     end
 
     def show
-      @ducat = Ducat.find(params[:id])
+      @ducat    = Ducat.find(params[:id])
+      @pictures = @ducat.pictures
     end
 
     def edit
@@ -17,6 +18,13 @@ class DucatsController < ApplicationController
     def create
       @ducat = Ducat.new(ducat_params)    # Not the final implementation!
       if @ducat.save
+
+        if params[:images]
+          params[:images].each { |image|
+            @ducat.pictures.create(image: image)
+          }
+        end
+
         flash[:success] = "Готово! Эталон создан успешно!"
         redirect_to @ducat
       else
@@ -43,7 +51,7 @@ class DucatsController < ApplicationController
   private
 
     def ducat_params
-      params.require(:ducat).permit(:name, :mean_price, :material, :weight, :diameter, :rating, :publish_year, :mint, :set, :description)
+      params.require(:ducat).permit(:name, :mean_price, :material, :weight, :diameter, :rating, :publish_year, :mint, :set, :description, :pictures)
     end
 
     def signed_in_user_admin

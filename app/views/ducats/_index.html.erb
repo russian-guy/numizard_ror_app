@@ -7,17 +7,19 @@
 <% end %>
 
 <ul class="ducats">
-  <% @ducats = Ducat.all %>
+  <% @ducats   = Ducat.all %>
   <% @ducats.each do |ducat| %>
 
     <li>
       <div>
         <% if signed_in_admin? %>
-            <%= link_to("Редактировать", "ducats/" + ducat.id.to_s + "/edit", class: "btn btn-medium btn-primary")           %>
-            <%= link_to("Удалить",       ducat, method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-medium ") %>
+            <%= link_to("Редактировать", "ducats/" + ducat.id.to_s + "/edit", class: "btn btn-mini btn-primary")           %>
+            <%= link_to("Удалить",       ducat, method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-mini ") %>
         <% end %>
       </div>
-
+      <% unless ducat.pictures.first.nil? %>
+        <%= image_tag ducat.pictures.first.image.url, size: "80" %>
+      <% end %>
       <%= link_to(ducat.name, ducat) %>
     </li>
 

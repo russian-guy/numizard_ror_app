@@ -50,8 +50,13 @@
         <%= f.label :set, "Количество" %>
         <%= f.text_field :set, :placeholder => '1' %>
 
-        <%= f.label :avatar, "Фото" %>
-        <%= f.file_field :avatar, multiple: true %>
+        <div class="control-group">
+          <%= f.label :pictures, :class => 'control-label' %>
+          <div class="controls">
+            <!-- The magic is coming ...look at my eyes....shazammmm -->
+            <%= file_field_tag "images[]", type: :file, multiple: true %>
+          </div>
+        </div>
 
         <%= f.label :description, "Описание" %>
         <%= f.text_area :description, :placeholder => 'Введите описание' %>
